@@ -44,10 +44,16 @@ type
     procedure Button_QuickClick(Sender: TObject);
     procedure Button_SelectionClick(Sender: TObject);
     procedure Wyswietl_Zrodlo;
+    procedure Wyswietl_Posortowane;
+    procedure Wypelnienie_Tablicy;
+    procedure KopiowanieDoSort;
+    procedure KopiowanieDoLiczb;
+    procedure KopiowanieOdwrotne;
+    procedure SortowanieBabelkowe;
   private
     tabSort : array [0..cRozmiarTablicy] of integer;
     tabLiczb : array [0..cRozmiarTablicy] of integer;
-    zmienna1, zmienna2 : integer;
+    liczbaZamian, liczbaPorownan : integer;
 
   public
 
@@ -93,7 +99,8 @@ end;
 
 procedure TSort.Button_LosujClick(Sender: TObject);
 begin
-
+  Wypelnienie_Tablicy;
+  Wyswietl_Zrodlo;
 end;
 
 procedure TSort.Button_QuickClick(Sender: TObject);
@@ -113,9 +120,20 @@ end;
 
 procedure TSort.Button_BubbleClick(Sender: TObject);
 begin
-
+  SortowanieBabelkowe;
+  Wyswietl_Posortowane;
 end;
 
+procedure TSort.Wypelnienie_Tablicy;
+var
+  i : integer;
+begin
+  Randomize;
+  for i:=1 to cRozmiarTablicy do
+      tabLiczb[i]:=random(1000);
+  liczbaZamian:=0;
+  liczbaPorownan:=0;
+end;
 
 procedure TSort.Wyswietl_Zrodlo;
 var
@@ -123,7 +141,65 @@ var
 begin
   ListBox_Zrodlowe.Clear;
   for i:=1 to cRozmiarTablicy do
-  ListBox_Zrodlowe.Items.Add (IntToStr(i) + ': ' + IntToStr(tabLiczb[i]));
+      ListBox_Zrodlowe.Items.Add (IntToStr(i) + ': ' + IntToStr(tabLiczb[i]));
+end;
+
+procedure TSort.Wyswietl_Posortowane;
+var
+  i : integer;
+begin
+  ListBox_Posortowane.Clear;
+  for i:=1 to cRozmiarTablicy do
+      ListBox_Posortowane.Items.Add (IntToStr(i) + ': ' + IntToStr(tabSort[i]));
+end;
+
+procedure TSort.KopiowanieDoSort;
+var
+  i : word;
+begin
+  for i:=1 to cRozmiarTablicy do
+      tabSort[i]:=tabLiczb[i];
+end;
+
+procedure TSort.KopiowanieDoLiczb;
+var
+  i : word;
+begin
+  for i:=1 to cRozmiarTablicy do
+      tabLiczb[i]:=tabSort[i];
+end;
+
+procedure TSort.KopiowanieOdwrotne;
+var
+  i : word;
+begin
+  for i:=1 to cRozmiarTablicy do
+      tabLiczb[i]:=tabSort[cRozmiarTablicy-i+1];
+end;
+
+procedure TSort.SortowanieBabelkowe;
+var
+  i, j, temp : word;
+begin
+  KopiowanieDoSort;
+  for i:=1 to cRozmiarTablicy-1 do
+      begin
+        for j:=cRozmiarTablicy downto i+1 do
+            begin
+              liczbaPorownan:=liczbaPorownan+1;
+              if (tabSort [j-1]>tabSort [j]) then
+              begin
+                temp:=tabSort[j];
+                tabSort[j]:=tabSort[j-1];
+                tabSort[j-1]:=temp;
+                liczbaZamian:=liczbaZamian+1;
+              end;
+            end;
+      end;
+  Edit_Liczba_Zamian.Clear;
+  Edit_Liczba_Zamian.Text:=IntToStr(liczbaZamian);
+  Edit_Liczba_Porownan.Clear;
+  Edit_Liczba_Porownan.Text:=IntToStr(liczbaPorownan);
 end;
 
 end.
