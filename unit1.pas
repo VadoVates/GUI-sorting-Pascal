@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 const
-  cRozmiarTablicy = 20;
+  cRozmiarTablicy = 35;
 
 type
 
@@ -50,6 +50,8 @@ type
     procedure KopiowanieDoLiczb;
     procedure KopiowanieOdwrotne;
     procedure SortowanieBabelkowe;
+    procedure SortowanieProsteWstawianie;
+    procedure Zamien (var x, y : integer);
   private
     tabSort : array [0..cRozmiarTablicy] of integer;
     tabLiczb : array [0..cRozmiarTablicy] of integer;
@@ -79,7 +81,8 @@ end;
 
 procedure TSort.Button_InsertionClick(Sender: TObject);
 begin
-
+  SortowanieProsteWstawianie;
+  Wyswietl_Posortowane;
 end;
 
 procedure TSort.Button_Insertion_w_GuardClick(Sender: TObject);
@@ -179,7 +182,7 @@ end;
 
 procedure TSort.SortowanieBabelkowe;
 var
-  i, j, temp : word;
+  i, j : word;
 begin
   KopiowanieDoSort;
   for i:=1 to cRozmiarTablicy-1 do
@@ -189,17 +192,56 @@ begin
               liczbaPorownan:=liczbaPorownan+1;
               if (tabSort [j-1]>tabSort [j]) then
               begin
-                temp:=tabSort[j];
-                tabSort[j]:=tabSort[j-1];
-                tabSort[j-1]:=temp;
+                Zamien (tabSort[j-1], tabSort[j]);
                 liczbaZamian:=liczbaZamian+1;
               end;
             end;
       end;
   Edit_Liczba_Zamian.Clear;
   Edit_Liczba_Zamian.Text:=IntToStr(liczbaZamian);
+  liczbaZamian:=0;
   Edit_Liczba_Porownan.Clear;
   Edit_Liczba_Porownan.Text:=IntToStr(liczbaPorownan);
+  liczbaPorownan:=0;
+end;
+
+procedure TSort.Zamien (var x, y : integer);
+var
+  temp : integer;
+begin
+  temp:=x;
+  x:=y;
+  y:=temp;
+end;
+
+procedure TSort.SortowanieProsteWstawianie;
+var
+  i, j : integer;
+  czyKoniec : boolean;
+begin
+  KopiowanieDoSort;
+  for i:=1 to cRozmiarTablicy-1 do
+      begin
+        czyKoniec:=false;
+        j:=i+1;
+        repeat
+          liczbaPorownan:=liczbaPorownan+1;
+          if (tabSort[j]<tabSort[j-1]) then
+          begin
+            liczbaZamian:=liczbaZamian+1;
+            Zamien (tabSort[j],tabSort[j-1]);
+            j:=j-1;
+          end
+          else
+              czyKoniec:=true;
+        until (j=1) or (czyKoniec=true);
+      end;
+  Edit_Liczba_Zamian.Clear;
+  Edit_Liczba_Zamian.Text:=IntToStr(liczbaZamian);
+  liczbaZamian:=0;
+  Edit_Liczba_Porownan.Clear;
+  Edit_Liczba_Porownan.Text:=IntToStr(liczbaPorownan);
+  liczbaPorownan:=0;
 end;
 
 end.

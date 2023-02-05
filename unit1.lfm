@@ -1,14 +1,14 @@
 object Sort: TSort
-  Left = 5
+  Left = 9
   Height = 567
   Top = 132
-  Width = 755
+  Width = 702
   Caption = 'Sortowanie'
   ClientHeight = 567
-  ClientWidth = 755
+  ClientWidth = 702
   LCLVersion = '2.2.4.0'
   object ListBox_Posortowane: TListBox
-    Left = 504
+    Left = 484
     Height = 350
     Top = 24
     Width = 200
@@ -16,7 +16,7 @@ object Sort: TSort
     TabOrder = 0
   end
   object ListBox_Zrodlowe: TListBox
-    Left = 128
+    Left = 108
     Height = 350
     Top = 24
     Width = 200
@@ -24,7 +24,7 @@ object Sort: TSort
     TabOrder = 1
   end
   object Button_Losuj: TButton
-    Left = 24
+    Left = 16
     Height = 47
     Top = 155
     Width = 75
@@ -33,7 +33,7 @@ object Sort: TSort
     TabOrder = 2
   end
   object Label_Dane_Zrodlowe: TLabel
-    Left = 160
+    Left = 140
     Height = 25
     Top = 0
     Width = 135
@@ -47,7 +47,7 @@ object Sort: TSort
     ParentFont = False
   end
   object Label_Dane_Posortowane: TLabel
-    Left = 520
+    Left = 500
     Height = 25
     Top = 0
     Width = 170
@@ -61,7 +61,7 @@ object Sort: TSort
     ParentFont = False
   end
   object Button_Kopiuj: TButton
-    Left = 352
+    Left = 332
     Height = 25
     Top = 130
     Width = 128
@@ -70,7 +70,7 @@ object Sort: TSort
     TabOrder = 3
   end
   object Button_Kopiuj_Odwrotnie: TButton
-    Left = 352
+    Left = 332
     Height = 25
     Top = 218
     Width = 128
@@ -79,7 +79,7 @@ object Sort: TSort
     TabOrder = 4
   end
   object Button_Bubble: TButton
-    Left = 36
+    Left = 16
     Height = 25
     Top = 384
     Width = 300
@@ -88,7 +88,7 @@ object Sort: TSort
     TabOrder = 5
   end
   object Button_Insertion_w_Guard: TButton
-    Left = 36
+    Left = 16
     Height = 25
     Top = 448
     Width = 300
@@ -97,7 +97,7 @@ object Sort: TSort
     TabOrder = 6
   end
   object Button_Insertion: TButton
-    Left = 36
+    Left = 16
     Height = 25
     Top = 416
     Width = 300
@@ -106,7 +106,7 @@ object Sort: TSort
     TabOrder = 7
   end
   object Button_Selection: TButton
-    Left = 36
+    Left = 16
     Height = 25
     Top = 480
     Width = 300
@@ -115,7 +115,7 @@ object Sort: TSort
     TabOrder = 8
   end
   object Button_Quick: TButton
-    Left = 36
+    Left = 16
     Height = 25
     Top = 512
     Width = 300
@@ -124,7 +124,7 @@ object Sort: TSort
     TabOrder = 9
   end
   object Label_Liczba_Zamian: TLabel
-    Left = 472
+    Left = 452
     Height = 15
     Top = 385
     Width = 77
@@ -132,7 +132,7 @@ object Sort: TSort
     ParentColor = False
   end
   object Label_Liczba_Porownan: TLabel
-    Left = 456
+    Left = 436
     Height = 15
     Top = 413
     Width = 93
@@ -140,21 +140,21 @@ object Sort: TSort
     ParentColor = False
   end
   object Edit_Liczba_Zamian: TEdit
-    Left = 560
+    Left = 540
     Height = 23
     Top = 384
     Width = 80
     TabOrder = 10
   end
   object Edit_Liczba_Porownan: TEdit
-    Left = 560
+    Left = 540
     Height = 23
     Top = 413
     Width = 80
     TabOrder = 11
   end
   object Button_Info: TButton
-    Left = 504
+    Left = 484
     Height = 25
     Top = 512
     Width = 75
@@ -163,7 +163,7 @@ object Sort: TSort
     TabOrder = 12
   end
   object Button_EndProgram: TButton
-    Left = 629
+    Left = 609
     Height = 25
     Top = 512
     Width = 75
