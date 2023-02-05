@@ -1,9 +1,9 @@
-object Form1: TForm1
+object Sort: TSort
   Left = 5
   Height = 567
   Top = 132
   Width = 755
-  Caption = 'Form1'
+  Caption = 'Sortowanie'
   ClientHeight = 567
   ClientWidth = 755
   LCLVersion = '2.2.4.0'
@@ -29,6 +29,7 @@ object Form1: TForm1
     Top = 155
     Width = 75
     Caption = 'Losuj'
+    OnClick = Button_LosujClick
     TabOrder = 2
   end
   object Label_Dane_Zrodlowe: TLabel
@@ -65,6 +66,7 @@ object Form1: TForm1
     Top = 130
     Width = 128
     Caption = '<------- Kopiuj'
+    OnClick = Button_KopiujClick
     TabOrder = 3
   end
   object Button_Kopiuj_Odwrotnie: TButton
@@ -73,46 +75,52 @@ object Form1: TForm1
     Top = 218
     Width = 128
     Caption = '<-- Kopiuj odwrotnie'
+    OnClick = Button_Kopiuj_OdwrotnieClick
     TabOrder = 4
   end
-  object Button_Sort_Bubble: TButton
+  object Button_Bubble: TButton
     Left = 36
     Height = 25
-    Top = 385
+    Top = 384
     Width = 300
     Caption = 'Sortowanie bąbelkowe'
+    OnClick = Button_BubbleClick
     TabOrder = 5
   end
-  object Button_Sort_Insertion_w_Guard: TButton
+  object Button_Insertion_w_Guard: TButton
     Left = 36
     Height = 25
     Top = 448
     Width = 300
     Caption = 'Sortowanie przez proste wstawianie ze strażnikiem'
+    OnClick = Button_Insertion_w_GuardClick
     TabOrder = 6
   end
-  object Button_Sort_Insertion: TButton
+  object Button_Insertion: TButton
     Left = 36
     Height = 25
     Top = 416
     Width = 300
     Caption = 'Sortowanie przez proste wstawianie'
+    OnClick = Button_InsertionClick
     TabOrder = 7
   end
-  object Button_Selection_Sort: TButton
+  object Button_Selection: TButton
     Left = 36
     Height = 25
     Top = 480
     Width = 300
     Caption = 'Sortowanie przez proste wybieranie'
+    OnClick = Button_SelectionClick
     TabOrder = 8
   end
-  object Button_Quick_Sort: TButton
+  object Button_Quick: TButton
     Left = 36
     Height = 25
     Top = 512
     Width = 300
     Caption = 'Sortowanie szybkie'
+    OnClick = Button_QuickClick
     TabOrder = 9
   end
   object Label_Liczba_Zamian: TLabel
@@ -151,6 +159,7 @@ object Form1: TForm1
     Top = 512
     Width = 75
     Caption = 'Info'
+    OnClick = Button_InfoClick
     TabOrder = 12
   end
   object Button_EndProgram: TButton
@@ -159,6 +168,7 @@ object Form1: TForm1
     Top = 512
     Width = 75
     Caption = 'Koniec'
+    OnClick = Button_EndProgramClick
     TabOrder = 13
   end
 end
